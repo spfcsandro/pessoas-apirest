@@ -1,0 +1,5 @@
+com\castgroup\rest\repository\PessoaRepository.class
+com\castgroup\rest\RestApplication.class
+com\castgroup\rest\config\SwaggerConfig.class
+com\castgroup\rest\resources\PessoaResource.class
+com\castgroup\rest\models\Pessoa.class
