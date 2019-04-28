@@ -16,7 +16,7 @@ public class Pessoa implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	@NotEmpty(message="Por favor, digite um nome!")
 	private String nome;
