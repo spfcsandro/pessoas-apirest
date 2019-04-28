@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.google.common.base.Predicates;
+
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
@@ -24,7 +26,7 @@ public class SwaggerConfig {
 		return new Docket(DocumentationType.SWAGGER_2)
 				.select()
 				.apis(RequestHandlerSelectors.basePackage("com.castgroup.rest"))
-				.paths(regex("/rest.*"))
+				.paths(Predicates.or( regex("/rest.*"),regex("/v1.*")))
 				.build()
 				.apiInfo(metaInfo());
 	}
@@ -32,7 +34,8 @@ public class SwaggerConfig {
 	private ApiInfo metaInfo(){
 		ApiInfo apiInfo = new ApiInfo(
 				"Pessoas API REST",
-				"API REST de Cadastro de pessoas.",
+				"API REST de Cadastro de pessoas, \n"
+				+ "API REST comparação de Base64",
 				"1.0",
 				"Terms of Service",
 				new Contact("Sandro Andrade", "http://github.com/spfcsandro", 

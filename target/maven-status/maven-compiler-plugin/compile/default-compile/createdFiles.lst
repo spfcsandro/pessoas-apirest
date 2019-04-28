@@ -1,5 +1,14 @@
-com\castgroup\rest\repository\PessoaRepository.class
 com\castgroup\rest\RestApplication.class
+com\castgroup\rest\config\RestApiProperty.class
 com\castgroup\rest\config\SwaggerConfig.class
-com\castgroup\rest\resources\PessoaResource.class
-com\castgroup\rest\models\Pessoa.class
+com\castgroup\rest\service\impl\PessoaServiceImpl.class
+com\castgroup\rest\cors\CorsFilter.class
+com\castgroup\rest\config\RestApiProperty$Security.class
+com\castgroup\rest\resource\PessoaResource.class
+com\castgroup\rest\model\Error.class
+com\castgroup\rest\service\PessoaService.class
+com\castgroup\rest\repository\PessoaRepository.class
+com\castgroup\rest\model\Pessoa.class
+com\castgroup\rest\util\MessageUtil.class
+com\castgroup\rest\util\ObjectUtil.class
+com\castgroup\rest\exception\ValidationException.class
