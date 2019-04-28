@@ -1,6 +1,5 @@
 package com.castgroup.rest.resource;
 
-import java.net.URI;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.castgroup.rest.exception.ValidationException;
 import com.castgroup.rest.model.Pessoa;
@@ -31,7 +29,7 @@ import io.swagger.annotations.ApiOperation;
 @RequestMapping(value="/rest")
 @Api(value="API REST Pessoas")
 @CrossOrigin(origins="*")
-public class PessoaResource {
+public class PessoaResource extends AbstractResource {
 	
 	@Autowired
 	PessoaService pessoaService;
@@ -58,7 +56,7 @@ public class PessoaResource {
 	@ApiOperation(value="Salva um Pessoa")
 	public ResponseEntity<Pessoa> salvaPessoa(@RequestBody @Valid Pessoa pessoa, HttpServletResponse response) throws ValidationException{
 		Pessoa entidade = pessoaService.save(pessoa);
-		adcionaHeaderLocation(entidade,response,"SALVAR");
+		adcionaHeaderLocation(entidade.getId(),response,"SALVAR");
 	    return new ResponseEntity<>(entidade, HttpStatus.CREATED);
 	}
 	
@@ -74,23 +72,8 @@ public class PessoaResource {
 			HttpServletResponse response) throws ValidationException {
 		pessoa.setId(id);
 		Pessoa entidade = pessoaService.save(pessoa);
-		adcionaHeaderLocation(entidade,response,"ATUALIZAR");
+		adcionaHeaderLocation(entidade.getId(),response,"ATUALIZAR");
         return new ResponseEntity<>(entidade, HttpStatus.CREATED);
 	}
-	
-	private void adcionaHeaderLocation(Pessoa pessoa, HttpServletResponse response, String metodo){
-        URI uri = null;
-        
-        if(metodo.equals("SALVAR")) {
-        	uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}")
-        				.buildAndExpand(pessoa.getId()).toUri();
-        }else {
-        	uri = ServletUriComponentsBuilder.fromCurrentRequestUri()
-    				.buildAndExpand(pessoa.getId()).toUri();
-        }
-        		
-        response.setHeader("Location", uri.toASCIIString());
-    }
-	
-	
+		
 }

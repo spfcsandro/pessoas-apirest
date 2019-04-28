@@ -1,18 +1,27 @@
 package com.castgroup.rest.model;
 
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 import com.castgroup.rest.enuns.TipoDiff;
 
+@Entity
+@Table(name = "TB_DIFF")
 public class Diff {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
-	private Long codigoHash;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private long id;
+	private long codigoHash;
+	@NotEmpty(message="Por favor, digite um codigo BASE64 válido!")
 	private String hash;
+	@Enumerated(EnumType.STRING)
 	private TipoDiff tipoDiff;
 	
 	public long getId() {

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties("rest")
 public class RestApiProperty {
 
-    private String allowedOrigin = "*";
+    private String allowedOrigin = "/**";
     private final Security security = new Security();
 
     public String getAllowedOrigin() {

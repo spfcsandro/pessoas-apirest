@@ -1,4 +1,0 @@
-DELETE FROM tb_pessoa;
-
-ALTER SEQUENCE pessoa_id_seq RESTART WITH 1;
-ALTER SEQUENCE hibernate_sequence RESTART WITH 1;
