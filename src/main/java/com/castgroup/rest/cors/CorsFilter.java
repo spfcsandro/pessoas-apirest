@@ -19,11 +19,11 @@ import org.springframework.stereotype.Component;
 import com.castgroup.rest.config.RestApiProperty;
 
 
-@Component
-@Order(Ordered.HIGHEST_PRECEDENCE)
-public class CorsFilter implements Filter {
+//@Component
+//@Order(Ordered.HIGHEST_PRECEDENCE)
+public class CorsFilter /*implements Filter*/ {
 
-    @Autowired
+    /*@Autowired
     private RestApiProperty restApiProperty;
 
     @Override
@@ -53,6 +53,6 @@ public class CorsFilter implements Filter {
 
     @Override
     public void init(FilterConfig arg0) throws ServletException {
-    }
+    }*/
 
 }

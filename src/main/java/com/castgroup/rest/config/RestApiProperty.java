@@ -1,13 +1,10 @@
 package com.castgroup.rest.config;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
-
-@Component
-@ConfigurationProperties("rest")
+//@Component
+//@ConfigurationProperties("rest")
 public class RestApiProperty {
 
-    private String allowedOrigin = "/**";
+    /*private String allowedOrigin = "/**";
     private final Security security = new Security();
 
     public String getAllowedOrigin() {
@@ -33,7 +30,7 @@ public class RestApiProperty {
         public void setEnableHttps(boolean enableHttps) {
             this.enableHttps = enableHttps;
         }
-    }
+    }*/
 
 }
 

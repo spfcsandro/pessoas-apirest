@@ -84,7 +84,7 @@ public class DiffResource extends AbstractResource{
 		Diff diffRight = diffService.buscarDiffByCodigoHashAndTipoDiff(codigoHash, TipoDiff.RIGHT);
 		DiffDTO diff = new DiffDTO();
 		
-		if(diffLeft.equals(diffRight)) {
+		if(diffLeft.getHash().equals(diffRight.getHash())) {
 			diff.setHash("São IGUAIS");
 		}else {
 			diff.setHash("Diferentes");
